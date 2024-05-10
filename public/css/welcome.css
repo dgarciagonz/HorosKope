@@ -1,0 +1,11 @@
+.fondo-espacial{
+    background-image: url('../backgrounds/estrellas.png');
+    background-repeat: repeat;
+    background-size: auto;
+    z-index: -1;
+}
+
+.fondo{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.301) 75%, rgb(13, 126, 255), white);
+    height: 100vh;
+}

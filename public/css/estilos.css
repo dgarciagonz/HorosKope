@@ -1,0 +1,165 @@
+
+main{
+    background-color: #120038;
+    /*background-image: url('../backgrounds/estrellas.png');*/
+    min-height: 100vh;
+}
+
+.menunav{
+    background-color: black ;
+    border-bottom: 2px solid #FF0DDC;
+}
+
+.publicacion, .usuario {
+    background-color: black;
+    border: 2px solid #FF0DDC;
+}
+
+.bordeizq{
+    border-top: 2px solid ;
+    border-left: 2px solid ;
+    border-color: #FF0DDC;
+    border-top-left-radius: 10px;
+
+}
+.bordeder{
+    border-top: 2px solid ;
+    border-right: 2px solid ;
+    border-color: #FF0DDC;
+    border-top-right-radius: 10px;
+}
+
+.nuevo-Comment{
+    background-color: black;
+    color: white;
+}
+
+.compatibilidad{
+    background: linear-gradient(to bottom, #B197FC, #544DDA);
+}
+
+.noSub{
+    text-decoration: none; 
+    color: #FF0DDC !important;
+}
+
+.subtext{
+    color: #cecece !important;
+}
+
+.emergente{
+    background-color: #C400A8;
+    color: white !important;
+}
+
+.pos{
+    color: #09ff00 !important;
+}
+
+
+.neg{
+    color: #ff9090 !important;
+}
+
+
+.fondoPregunta{
+    background: linear-gradient(to bottom, #da05c8, #87549b);
+    min-height: 100vh;
+}
+
+.amor{
+    background: linear-gradient(to bottom, #be1f03, #da05c8);
+    min-height: 100vh;
+}
+
+.dinero{
+    background: linear-gradient(to bottom, #e4a00d, #8fe00c);
+    min-height: 100vh;
+}
+
+.salud{
+    background: linear-gradient(to bottom, #13c903, #27eba9);
+    min-height: 100vh;
+}
+
+.barraAmor{
+    background: linear-gradient(to right, #ffb1f9, #e837ff);
+}
+
+.barraAmistad{
+    background: linear-gradient(to right, #40ffbf, #059b61);
+}
+
+.color-boton{
+    background-color: #FFAFF4 !important;
+    color:#b40c9b !important;
+    transition: background-color 0.5s ease;
+}
+
+
+
+
+.color-boton:hover, .btnActivado{
+    background-color: #FF0DDC !important;
+    color: white !important;;
+}
+
+p,h1,.tit{
+    color:#FFFFFF !important;
+}
+
+.textoCarta{
+    color: black !important;
+}
+
+.bg-tarot{
+    background-image: url('../backgrounds/fondo_cartas.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-horoscopo{
+    background-image: url('../backgrounds/fondo_horoscopo.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.Aries {
+    background: linear-gradient(to bottom,#bb2c2e, #F56420);
+}
+.Tauro {
+    background: linear-gradient(to bottom,#F56420, #F49618);
+}
+.Géminis {
+    background: linear-gradient(to bottom,#F49618, #89c529);
+}
+.Cáncer {
+    background: linear-gradient(to bottom,#89c529, #249544);
+}
+.Leo {
+    background: linear-gradient(to bottom,#249544, #147957);
+}
+.Virgo {
+    background: linear-gradient(to bottom,#147957, #009FB8);
+}
+.Libra {
+    background: linear-gradient(to bottom,#009FB8, #0375BE);
+}
+.Escorpio {
+    background: linear-gradient(to bottom,#0375BE, #005CB0);
+}
+.Sagitario {
+    background: linear-gradient(to bottom,#005CB0, #3850A7);
+}
+.Capricornio {
+    background: linear-gradient(to bottom,#3850A7, #88338E);
+}
+.Acuario {
+    background: linear-gradient(to bottom,#88338E, #771B82);
+}
+.Piscis {
+    background: linear-gradient(to bottom,#771B82, #bb2c2e);
+}
