@@ -20,7 +20,7 @@
                 </div>
                 <div id="bloque_perfiles" style="display:none">
                     @if($perfiles->isEmpty())
-                        <div class="col-md-12 mb-4">
+                        <div class="col-md-12 mb-4 wow animate__animated animate__flipInX">
                             <div class="card border-0">
                                 <div class="card-body rounded usuario">
                                     <p class="card-text">No hay ningun perfin que coincida en esta búsqueda</p>
@@ -29,7 +29,7 @@
                         </div>
                     @else
                         @foreach($perfiles as $perfil)
-                                    <div class="col-md-12 pb-2">
+                                    <div class="col-md-12 pb-2 wow animate__animated animate__flipInX">
                                         <div class="card border-0">
                                             <div class="card-body rounded usuario">
                                                 <div class="d-flex align-items-center mb-1">
@@ -48,7 +48,7 @@
                 
                 <div id="bloque_posts" style="display:block">
                     @if($publicaciones->isEmpty())
-                        <div class="col-md-12 mb-4">
+                        <div class="col-md-12 mb-4 wow animate__animated animate__flipInX">
                             <div class="card border-0">
                                 <div class="card-body rounded publicacion">
                                     <p class="card-text">No hay ninguna publicación que coincida en esta búsqueda</p>
@@ -58,8 +58,8 @@
                     @else
                         @foreach($publicaciones as $publicacion)
                             @if($publicacion->user->estado)
-                            <div class="col-md-12 pb-2">
-                                <div class="card wow fadeInDown border-0">
+                            <div class="col-md-12 pb-2 wow animate__animated animate__fadeIn">
+                                <div class="card border-0">
                                     <div class="card-body  rounded publicacion ">
                                         <div class="d-flex align-items-center mb-1 ">
                                             <div class="rounded-circle overflow-hidden" style="width: 50px; height: 50px;">
@@ -82,11 +82,11 @@
                                         <p class="card-text">
                                             @if (auth()->user()->likes->contains('id_publicacion', $publicacion->id_publicacion))
                                                     <p>
-                                                        <button type="submit"> <i class="fa-solid fa-heart" style="color: #FF0DDC;"></i> {{ $publicacion->likes->count() }}</button>
+                                                         <i class="fa-solid fa-heart" style="color: #FF0DDC;"></i> {{ $publicacion->likes->count() }}
                                                     </p>
                                             @else
                                                     <p>
-                                                        <button type="submit"> <i class="fa-regular fa-heart" style="color: #FF0DDC     ;"></i> {{ $publicacion->likes->count() }}</button>
+                                                        <i class="fa-regular fa-heart" style="color: #FF0DDC     ;"></i> {{ $publicacion->likes->count() }}
                                                     </p>
                                             @endif
                                         </p>
@@ -94,7 +94,7 @@
 
                                     <div class="col-4 text-center">
                                         <p class="card-text comentario">
-                                            <button><i class="fa-regular fa-comment" style="color: #FF0DDC;"></i> {{ $publicacion->comentarios->count() }} </button> 
+                                            <i class="fa-regular fa-comment" style="color: #FF0DDC;"></i> {{ $publicacion->comentarios->count() }}
                                         </p>
                                     </div>
                                 </div>

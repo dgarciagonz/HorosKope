@@ -11,11 +11,12 @@
             </div>
         </div>
 @else
-    <div class="container">
+  <div class="container">
         <h1 class="text-center">Cartas en tu Colección</h1>
         <div class="row d-flex justify-content-center">
             @foreach($cartas as $carta)
-                <div class="col-5  col-md-3 mb-4">
+                       
+                <div class="col-5  col-md-3 mb-4 wow animate__animated animate__bounceIn" >
                     <div class="card carta">
                         <img src="{{ asset($carta->imagen) }}" alt="{{ $carta->nombre }}" style="max-width: 100%; max-height: 520px;" class="card-img-top" data-bs-toggle="modal" data-bs-target="#cartaModal{{ $carta->id_carta }}">
                         <div class="card-body">

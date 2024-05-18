@@ -52,7 +52,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-body text-start">
                                                         
-                                                    <label for="pitonisa">Pitonisa:</label>
+                                                    <label for="pitonisa">Cambiar pitonisa:</label>
                                                     <select name="pitonisa" id="pitonisa" class="form-control">
                                                         <option value="" disabled selected>----</option>
                                                         @foreach ($pitonisas as $pitonisa)
@@ -60,7 +60,7 @@
                                                         @endforeach
                                                     </select>
 
-                                                    <label for="fecha" >Selecciona una fecha para tu cita:</label>
+                                                    <label for="fecha" >Nueva fecha para la cita:</label>
                                                     <select name="fecha" id="fecha" class="form-control">
 
                                                     </select>
@@ -69,7 +69,7 @@
                                                       
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                        <button type="submit" class="btn btn-danger" id="guardarCita" disabled>Cambiar cita</button>
+                                                        <button type="submit" class="btn color-boton" id="guardarCita" disabled>Cambiar cita</button>
                                                     </div>
                                                 </div>
                                             </div>

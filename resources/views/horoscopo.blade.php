@@ -1,12 +1,20 @@
 <x-app-layout>
+
+@php
+    $primerSigno = 0.1; 
+    $masDelay = 0.3; 
+@endphp
+
 <div class="container-fluid">
             <div class="row">
                 <div class="col-12 d-flex">
                     <div class="row d-flex flex-row jutify-between items-center w-100 m-2 rounded">
                         @foreach($signos as $signo)
-                        <div class="col-4 col-md-2 d-flex justify-center items-center ">
-                            <button 
-                                class="btn h-50 w-50 text-center signo" value='signo-{{$signo->id_signo}}'>
+                        @php
+                            $delay = $primerSigno + ($loop->index * $masDelay);
+                        @endphp
+                        <div class="col-4 col-md-2 d-flex justify-center items-center  ">
+                            <button class="btn h-50 w-50 text-center signo wow animate__animated animate__swing " value='signo-{{$signo->id_signo}}' data-wow-delay="{{$delay}}s">
                                 <img src="{{asset('icon/'.$signo->nombre.'.png')}}"> 
                                 
                             </button>
@@ -19,7 +27,7 @@
                 <div class="col-12 col-md-4 mb-2">
                     @foreach($diarios as $diario)
                     
-                        <div class=" p-2 card signo-{{$diario->signo}}" style=" display:none; min-height: 40vh;">
+                        <div class=" p-2 card signo-{{$diario->signo}} wow animate__animated animate__bounceInDown" style=" display:none; min-height: 40vh;">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Horóscopo diario</h5>
                                 <p class="card-text textoCarta">{{$diario->descripcion}}</p>
@@ -31,7 +39,7 @@
 
                 <div class="col-12 col-md-4 mb-2">
                     @foreach($semanales as $semanal)
-                    <div class="p-2 card signo-{{$semanal->signo}}" style=" display:none; min-height: 40vh;">
+                    <div class="p-2 card signo-{{$semanal->signo}} wow animate__animated animate__bounceInDown" data-wow-delay="0.2s" style=" display:none; min-height: 40vh;">
                         <div class="card-body">
                             <h5 class="card-title text-center">Horóscopo semanal</h5>
                             <p class="card-text textoCarta">{{$semanal->descripcion}}</p>
@@ -42,7 +50,7 @@
 
                 <div class="col-12 col-md-4 mb-2">
                     @foreach($mensuales as $mensual)
-                    <div class="p-2 card signo-{{$mensual->signo}}" style=" display:none; min-height: 40vh;">
+                    <div class="p-2 card signo-{{$mensual->signo}} wow animate__animated animate__bounceInDown" data-wow-delay="0.5s" style=" display:none; min-height: 40vh;">
                         <div class="card-body">
                             <h5 class="card-title text-center">Horóscopo mensual</h5>
                             <p class="card-text textoCarta">{{$mensual->descripcion}}</p>

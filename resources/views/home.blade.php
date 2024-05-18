@@ -40,7 +40,7 @@
 
                     @foreach($publicaciones as $publicacion)
                     <div class="col-md-12 pb-2">
-                        <div class="card wow fadeInDown border-0">
+                        <div class="card  border-0 wow animate__animated animate__fadeIn" data-wow-duration="0.6s" >
                             <div class="card-body  rounded publicacion ">
                             <div class="d-flex align-items-center mb-1 ">
                                 <div class="rounded-circle overflow-hidden" style="width: 50px; height: 50px;">
@@ -68,14 +68,14 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <p>
-                                                        <button type="submit" class="like"> <i class="fa-solid fa-heart" style="color: #FF0DDC;"></i> {{ $publicacion->likes->count() }}</button>
+                                                        <button type="submit"> <i class="fa-solid fa-heart" style="color: #FF0DDC;"></i> {{ $publicacion->likes->count() }}</button>
                                                     </p>
                                                 </form>
                                             @else
                                                 <form action="{{ route('like', ['publicacionId' => $publicacion->id_publicacion]) }}" method="POST">
                                                     @csrf
                                                     <p>
-                                                        <button type="submit" class="like"> <i class="fa-regular fa-heart" style="color: #FF0DDC     ;"></i> {{ $publicacion->likes->count() }}</button>
+                                                        <button type="submit"> <i class="fa-regular fa-heart" style="color: #FF0DDC     ;"></i> {{ $publicacion->likes->count() }}</button>
                                                     </p>
                                                 </form>
                                             @endif
@@ -180,7 +180,7 @@
                                 </div>
                                     <div class="row d-flex justify-content-center ms-2 ">
                                         <div class="">
-                                            <form action="{{ route('crearComentario') }}" method="POST" enctype="multipart/form-data" class="mb-2 nuevo-Comment rounded form-comment p-3" id="form-comment-{{ $publicacion->id_publicacion }}" style="display: none ">
+                                            <form action="{{ route('crearComentario') }}" method="POST" enctype="multipart/form-data" class="mb-2 nuevo-Comment rounded form-comment p-3 wow animate__animated animate__fadeIn" id="form-comment-{{ $publicacion->id_publicacion }}" style="display: none ">
                                                 @csrf
                                                 <input type="hidden" name="id_publicacion" value="{{ $publicacion->id_publicacion }}">
 

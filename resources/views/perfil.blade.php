@@ -28,15 +28,6 @@
                                                 <button class="btn btn-danger" type="submit">Dejar de seguir</button>
                                             </form>
                                         @else
-
-
-
-
-
-
-
-
-
                                             <form action="{{ route('seguirUsuario', ['idUsuario' => $usuario->id_usuario]) }}"
                                                 method="POST">
                                                 @csrf
@@ -44,26 +35,8 @@
                                             </form>
                                         @endif
 
-
-
-
-
-
-
-
-
                                     </div>
-
                                 @else
-
-
-
-
-
-
-
-
-
 
                                     <div class="col-12 mt-2 mb-4 d-flex justify-content-center align-items-center"><a
                                             href="/profile" class="btn color-boton textoB">Editar perfil</a></div>
@@ -99,15 +72,6 @@
                                                                     </div>
                                                                 </div>
                                                             @else
-
-
-
-
-
-
-
-
-
                                                                 @foreach($lista_seguidores as $seguidor)
                                                                                                                                                                             <div class="col-md-12 pb-2">
                                                                         <div class="card border-0">
@@ -129,15 +93,6 @@
                                                                     </div>
                                                                 @endforeach
                                                             @endif
-
-
-
-
-
-
-
-
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -163,15 +118,6 @@
                                                                     </div>
                                                                 </div>
                                                             @else
-
-
-
-
-
-
-
-
-
                                                                 @foreach($lista_seguidos as $seguido)
                                                                                                                                                                             <div class="col-md-12 pb-2">
                                                                         <div class="card border-0">
@@ -197,8 +143,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -317,15 +261,6 @@
                                     </div>
                                 </div>
                             @else
-
-
-
-
-
-
-
-
-
                                 <div class="card">
                                     <div class="card-body d-flex flex-column rounded justify-content-around {{$nombreSigno}}">
 
@@ -371,7 +306,7 @@
 
                 <div class="col-12" id="bloque_posts">
                     @if($publicaciones->isEmpty())
-                        <div class="col-md-12 pb-2">
+                        <div class="col-md-12 pb-2 wow animate__animated animate__flipInX" data-wow-duration="0.6s">
                             <div class="card border-0 ">
                                 <div class="card-body rounded publicacion">
                                     <p class="text-center">Este usuario no ha creado ninguna publicación</p>
@@ -383,8 +318,8 @@
 
 
                             @foreach($publicaciones as $publicacion)
-                                                                <div class="col-md-12 pb-2">
-                                        <div class="card wow fadeInDown border-0">
+                                                                <div class="col-md-12 pb-2 wow animate__animated animate__fadeIn" data-wow-duration="0.6s">
+                                        <div class="card  border-0">
                                             <div class="card-body  rounded publicacion ">
                                                 <div class="d-flex align-items-center mb-1 ">
                                                     <div class="rounded-circle overflow-hidden" style="width: 50px; height: 50px;">
@@ -574,7 +509,7 @@
                                                     <div class="">
                                                         <form action="{{ route('crearComentario') }}" method="POST"
                                                             enctype="multipart/form-data"
-                                                            class="mb-2 nuevo-Comment rounded form-comment p-3"
+                                                            class="mb-2 nuevo-Comment rounded form-comment p-3 wow animate__animated animate__fadeIn"
                                                             id="form-comment-{{ $publicacion->id_publicacion }}" style="display: none ">
                                                             @csrf
                                                             <input type="hidden" name="id_publicacion"
@@ -611,7 +546,7 @@
 
             <div class="col-12" id="bloque_likes" style="display:none">
                 @if($numLikes == 0)
-                    <div class="col-md-12 pb-2">
+                    <div class="col-md-12 pb-2 wow animate__animated animate__flipInX" data-wow-duration="0.6s">
                         <div class="card border-0">
                             <div class="card-body rounded publicacion">
                                 <p class="text-center">Este usuario no ha dado ningún like</p>
@@ -623,7 +558,7 @@
 
                     @foreach($publiLikes as $publicacion)
                                                                                                                                                                                 <div class="col-md-12 pb-2">
-                            <div class="col-md-12 pb-2">
+                            <div class="col-md-12 pb-2 wow animate__animated animate__fadeIn" data-wow-duration="0.6s">
                                 <div class="card wow fadeInDown border-0">
                                     <div class="card-body  rounded publicacion ">
                                         <div class="d-flex align-items-center mb-1 ">
@@ -809,7 +744,7 @@
                                             <div class="">
                                                 <form action="{{ route('crearComentario') }}" method="POST"
                                                     enctype="multipart/form-data"
-                                                    class="mb-2 nuevo-Comment rounded form-comment p-3"
+                                                    class="mb-2 nuevo-Comment rounded form-comment p-3 wow animate__animated animate__fadeIn"
                                                     id="form-comment-{{ $publicacion->id_publicacion }}" style="display: none ">
                                                     @csrf
                                                     <input type="hidden" name="id_publicacion"
@@ -850,7 +785,7 @@
 
             <div class="col-12" id="bloque_comentarios" style="display:none">
                 @if($comentarios->isEmpty())
-                    <div class="col-md-12 pb-2">
+                    <div class="col-md-12 pb-2 wow animate__animated animate__flipInX" data-wow-duration="0.6s">
                         <div class="card border-0">
                             <div class="card-body rounded publicacion">
                                 <p class="text-center">Este usuario no ha creado nigún comentario</p>
@@ -862,7 +797,7 @@
 
 
                     @foreach($comentarios as $comentario)                                                                                                                              <div class="col-md-12 pb-2">
-                            <div class="card mb-2 border-0">
+                            <div class="card mb-2 border-0 wow animate__animated animate__fadeIn" data-wow-duration="0.6s">
                                 <div class="card-body rounded publicacion">
                                     <div class="d-flex align-items-center mb-1">
                                         <div class="rounded-circle overflow-hidden" style="width: 50px; height: 50px;">

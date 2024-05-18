@@ -2,7 +2,7 @@
 <div class="container ">
     <div class="row ">
         <!-- Tarjeta 1: Formulario de pregunta -->
-        <div class="col-md-4 mt-5 d-flex ">
+        <div class="col-md-4 mt-5 d-flex wow animate__animated animate__bounceInDown">
             <div class="card cartaOpcion fondoCarta1 w-100">
                 <div class="card-body cuerpoTarjeta w-100">
                 <h3 class="card-title mb-0 pt-3 text-center mb-5 ">Tirada de Si o No</h3>
@@ -24,7 +24,7 @@
 
         
 
-        <div class="col-md-4 mt-5 d-flex" >
+        <div class="col-md-4 mt-5 d-flex wow animate__animated animate__bounceInDown" data-wow-delay="0.2s">
             <div class="card cartaOpcion fondoCarta2 w-100">
                 
                 <div class="card-body cuerpoTarjeta w-100">
@@ -39,7 +39,7 @@
         </div>
 
         <!-- Tarjeta 3: Formulario de solicitud de cita -->
-        <div class="col-md-4 mt-5 d-flex">
+        <div class="col-md-4 mt-5 d-flex wow animate__animated animate__bounceInDown" data-wow-delay="0.5s">
             <div class="card cartaOpcion fondoCarta3 w-100">
                 <div class="card-body cuerpoTarjeta w-100">
                 <h3 class="card-title mb-0 pt-3 text-center mb-5">Cita con pitonisa</h3>
