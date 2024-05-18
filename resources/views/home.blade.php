@@ -68,14 +68,14 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <p>
-                                                        <button type="submit"> <i class="fa-solid fa-heart" style="color: #FF0DDC;"></i> {{ $publicacion->likes->count() }}</button>
+                                                        <button type="submit" class="like"> <i class="fa-solid fa-heart" style="color: #FF0DDC;"></i> {{ $publicacion->likes->count() }}</button>
                                                     </p>
                                                 </form>
                                             @else
                                                 <form action="{{ route('like', ['publicacionId' => $publicacion->id_publicacion]) }}" method="POST">
                                                     @csrf
                                                     <p>
-                                                        <button type="submit"> <i class="fa-regular fa-heart" style="color: #FF0DDC     ;"></i> {{ $publicacion->likes->count() }}</button>
+                                                        <button type="submit" class="like"> <i class="fa-regular fa-heart" style="color: #FF0DDC     ;"></i> {{ $publicacion->likes->count() }}</button>
                                                     </p>
                                                 </form>
                                             @endif
@@ -239,7 +239,7 @@
                         <div class="col-md-12 ">
                             <h5 class="tit  mb-0">Soporte</h5>
                             <ul class="list-group list-group-flush subtext">
-                                <li ><p class="subtext">soporte@horsokope.com</p></li>
+                                <li ><p class="subtext">soporte@horoskope.com</p></li>
                             </ul>
                             <h5 class="tit pt-2 mb-0">Trabaja con nosotros</h5>
                             <ul class="list-group list-group-flush fw-lighter">
@@ -258,5 +258,7 @@
 
 <script src="{{ asset('/js/principal.js') }}"></script>
 <script src="{{ asset('/js/comentarios.js') }}"></script>
+
+
 
 </x-app-layout>

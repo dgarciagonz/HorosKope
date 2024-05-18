@@ -2,12 +2,13 @@
 <div class="container-fluid">
             <div class="row">
                 <div class="col-12 d-flex">
-                    <div class="row d-flex bg-primary flex-row jutify-between items-center w-100 m-2 rounded">
+                    <div class="row d-flex flex-row jutify-between items-center w-100 m-2 rounded">
                         @foreach($signos as $signo)
-                        <div class="col-3 d-flex justify-center items-center ">
+                        <div class="col-4 col-md-2 d-flex justify-center items-center ">
                             <button 
-                                class="btn h-100 w-100 text-center btn-primary rounded signo" value='signo-{{$signo->id_signo}}'> 
-                                {{ $signo->nombre }}
+                                class="btn h-50 w-50 text-center signo" value='signo-{{$signo->id_signo}}'>
+                                <img src="{{asset('icon/'.$signo->nombre.'.png')}}"> 
+                                
                             </button>
                         </div>
                         @endforeach
@@ -15,13 +16,12 @@
                 </div>
             </div>
             <div class="row d-flex flex-row">
-                <div class="col-4">
+                <div class="col-12 col-md-4 mb-2">
                     @foreach($diarios as $diario)
                     
                         <div class=" p-2 card signo-{{$diario->signo}}" style=" display:none; min-height: 40vh;">
                             <div class="card-body">
-                                <h5 class="card-title">Horóscopo diario</h5>
-                                <h6 class="card-subtitle mb-2 text-body-secondary">{{$diario->fecha}}</h6>
+                                <h5 class="card-title text-center">Horóscopo diario</h5>
                                 <p class="card-text textoCarta">{{$diario->descripcion}}</p>
                             </div>
                         </div>
@@ -29,24 +29,22 @@
                     @endforeach
                 </div>
 
-                <div class="col-4">
+                <div class="col-12 col-md-4 mb-2">
                     @foreach($semanales as $semanal)
                     <div class="p-2 card signo-{{$semanal->signo}}" style=" display:none; min-height: 40vh;">
                         <div class="card-body">
-                            <h5 class="card-title">Horóscopo semanal</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">{{$semanal->fecha}}</h6>
+                            <h5 class="card-title text-center">Horóscopo semanal</h5>
                             <p class="card-text textoCarta">{{$semanal->descripcion}}</p>
                         </div>
                     </div>
                     @endforeach
                 </div>
 
-                <div class="col-4">
+                <div class="col-12 col-md-4 mb-2">
                     @foreach($mensuales as $mensual)
                     <div class="p-2 card signo-{{$mensual->signo}}" style=" display:none; min-height: 40vh;">
                         <div class="card-body">
-                            <h5 class="card-title">Horóscopo mensual</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">{{$mensual->fecha}}</h6>
+                            <h5 class="card-title text-center">Horóscopo mensual</h5>
                             <p class="card-text textoCarta">{{$mensual->descripcion}}</p>
                         </div>
                     </div>

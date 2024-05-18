@@ -2,20 +2,21 @@
 
 <div class="container-fluid">
     <div class="row d-flex justify-content-around">
+    
         <div class="col-lg-8 ">
             <div class="row">
                 <div class="d-flex align-items-center mt-4 mb-4">
-                    <form method="POST" action="{{ route('buscar') }}" class="d-flex flex-grow-1 me-2" role="search">
-                        @csrf
+                <form method="POST" action="{{ route('buscarF') }}" class="d-flex flex-grow-1 me-2" role="search">
+                        @csrf   
                         <input class="form-control me-2" id="contenidoBusqueda" type="search" placeholder="Buscar" aria-label="Search" name="query">
                         <button class="btn color-boton textoB" id="buscador" type="submit" disabled>Buscar</button>
-                    </form>
+                    
                 </div>
                 
 
                 <div class="d-flex justify-content-around rounded">
-                    <button class="col-md-6 bordeizq text-center p-2 color-boton btnActivado" id="texto_posts" onclick="mostrarPo('bloque_posts', 'bloque_perfiles')">Publicaciones</button>
-                    <button class="col-md-6 bordeder text-center p-2 color-boton" id="texto_perfiles" onclick="mostrarPe('bloque_perfiles', 'bloque_posts')">Usuarios</button>
+                    <a class="col-md-6 noSub2 bordeizq text-center p-2 color-boton btnActivado" id="texto_posts" onclick="mostrarPo('bloque_posts', 'bloque_perfiles')">Publicaciones</a>
+                    <a class="col-md-6 noSub2 bordeder text-center p-2 color-boton" id="texto_perfiles" onclick="mostrarPe('bloque_perfiles', 'bloque_posts')">Usuarios</a>
                 </div>
                 <div id="bloque_perfiles" style="display:none">
                     @if($perfiles->isEmpty())
@@ -114,41 +115,42 @@
             <div class="row d-none d-md-flex flex-column justify-content-around mt-5">
                 <div class="d-none d-md-flex justify-content-around rounded col-md-12 publicacion p-3">
                     <div>
-                        <form class="m-2">
+                        <div class="m-2">
                                 <h3 class="tit">Usuarios</h3>
                                 <div class="form-check tit">
-                                    <input class="form-check-input" type="radio" name="opcion" id="opcion1" value="opcion1" checked>
-                                    <label class="form-check-label" for="opcion1">
+                                    <input class="form-check-input" type="radio" name="usuar" id="todos" value="todos" checked>
+                                    <label class="form-check-label" for="todos">
                                         Cualquiera
                                     </label>
                                 </div>
                                 <div class="form-check tit ">
-                                    <input class="form-check-input" type="radio" name="opcion" id="opcion2" value="opcion2">
-                                    <label class="form-check-label" for="opcion2">
+                                    <input class="form-check-input" type="radio" name="usuar" id="seguidos" value="seguidos">
+                                    <label class="form-check-label" for="seguidos">
                                         Seguidos
                                     </label>
                                 </div>
-                            </form>
+                            </div>
                         
                     </div>
                     <div>
                         
-                            <form class="m-2">
+                            <div class="m-2">
                                 <h3 class="tit">Publicaciones</h3>
                                 <div class="form-check tit">
-                                    <input class="form-check-input" type="checkbox" id="filtro1">
-                                    <label class="form-check-label" for="filtro1">
-                                        Este Mes
+                                    <input class="form-check-input" type="radio" name="fechas" id="semana" value="semana">
+                                    <label class="form-check-label" for="semana">
+                                        Última semana
                                     </label>
                                 </div>
                                 <div class="form-check tit">
-                                    <input class="form-check-input" type="checkbox" id="filtro2">
-                                    <label class="form-check-label" for="filtro2">
-                                        Este Año
+                                    <input class="form-check-input" type="radio" name="fechas" id="mes" value="mes">
+                                    <label class="form-check-label" for="mes">
+                                        Último Mes
                                     </label>
                                 </div>
-                            </form>
+                            </div>
                         </div>
+                        </form>
                     </div>
                 <div class="col-md-12 mt-4 mb-4">
                 <div class="d-flex justify-content-between">
@@ -168,6 +170,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div> 
 

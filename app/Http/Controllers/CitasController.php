@@ -32,6 +32,74 @@ class CitasController extends Controller
     }
 
     public function fechas()
+{
+    $fechaInicio = Carbon::today()->addDay();
+    $fechaInicio->setHour(18)->setMinute(0)->setSecond(0);
+    $fechaFin = $fechaInicio->copy()->addDays(10);
+
+    //Sacamos las citas de los proximos 10 dias
+    $citas = Cita::whereBetween('fecha', [$fechaInicio, $fechaFin])
+        ->get();
+
+    //Creamos un array asociativo para las fechas ocupadas por cada pitonisa
+    $fechasOcupadasPorPitonisa = [];
+
+    foreach ($citas as $cita) {
+        $fechaCita = $cita->fecha;
+        $pitonisaId = $cita->id_pitonisa;
+
+        //Guarda las fechas ocupadas por las pitonisas
+        if (!isset($fechasOcupadasPorPitonisa[$pitonisaId])) {
+            $fechasOcupadasPorPitonisa[$pitonisaId] = [];
+        }
+
+        //Agregar la fecha ocupada a la lista de la pitonisa correspondiente
+        $fechasOcupadasPorPitonisa[$pitonisaId][] = $fechaCita;
+    }
+
+    //Crea un array asociativo con las citas disponibles por pitonisa
+    $fechasDisponiblesPorPitonisa = [];
+    $pitonisas = $this->pitonisas();
+
+    foreach ($pitonisas as $pitonisa) {
+        $idPitonisa = $pitonisa->id_usuario;
+
+        $fechasDisponibles = [];
+
+        for ($fecha = $fechaInicio->copy(); $fecha->lte($fechaFin); $fecha->addDay()) {
+            $fechaActual = $fecha->setHour(18)->setMinute(0)->setSecond(0)->toDateTimeString();
+
+            //Si la fecha actual no está en las fechas ocupadas, se añade a las disponibles
+            if (in_array($fechaActual, $fechasOcupadasPorPitonisa[$idPitonisa])) {
+
+            }else{
+                $fechasDisponibles[] = [
+                    'title' => 'Disponible',
+                    'dia' => $fechaActual,
+                ];
+            }
+        }
+
+        //Guardar las fechas disponibles para esta pitonisa
+        $fechasDisponiblesPorPitonisa[$idPitonisa] = $fechasDisponibles;
+    }
+
+    return $fechasDisponiblesPorPitonisa;
+}
+
+    public function fechasAjax($id_pitonisa)
+    {
+        //Obtener las fechas disponibles para la pitonisa seleccionada
+        $fechas = $this->fechas();
+        $fechasDisponibles = $fechas[$id_pitonisa];
+
+        //Devolver los datos como respuesta JSON
+        return response()->json($fechasDisponibles);
+    }
+
+
+
+    /*public function fechasUnaPitonisa()
     {
         $fechaInicio = Carbon::today()->addDay();
         $fechaInicio->setHour(18)->setMinute(0)->setSecond(0);
@@ -75,7 +143,7 @@ class CitasController extends Controller
             }
         }
         return ($fechasDisponibles);    
-    }
+    }*/
 
 
     public function pitonisas(){

@@ -40,6 +40,7 @@ Route::get('/coleccion', [TarotController::class, 'index'])->name('coleccion');
 
 //Controller búsqueda
 Route::post('/buscar',[BuscadorController::class, 'buscarDefault'])->name('buscar');
+Route::post('/buscarF',[BuscadorController::class, 'buscarConFiltros'])->name('buscarF');
 
 //Controller usuario
 Route::get('perfil/{username}', [PerfilController::class, 'mostrar'])->name('perfil');
@@ -65,6 +66,9 @@ Route::delete('/publicacion/{id_publicacion}', [PublicacionController::class, 'b
 Route::get('/tarot', [CitasController::class, 'obtenerFechasDisponibles'])->name('tarot');
 Route::post('/solicitar-cita', [CitasController::class, 'solicitarCita'])->name('solicitar-cita');
 
+//Ajax de Citas por pitonisa
+Route::get('/fechas-disponibles/{id_pitonisa}', [CitasController::class, 'fechasAjax'])->name('fechas-disponibles');
+
 //Controller citas
 Route::get('/citas',[CitasController::class,'verCitas'])->name('citas');
 Route::delete('/borrarCita/{id_cita}', [CitasController::class, 'borrarCita'])->name('borrarCita');
@@ -73,9 +77,11 @@ Route::post('/editarCita/{id_cita}',[CitasController::class,'editarCita'])->name
 
 //Controller Reports
 Route::get('/informes', [ReportesController::class,'verInformes'])->name('informes');
+Route::post('/reportarUser/{id_user}', [ReportesController::class, 'reportarUser'])->name('reportarUser');
 Route::post('/reportarComm/{id_comentario}', [ReportesController::class, 'reportarComentario'])->name('reportarComm');
 Route::post('/reportar-publicacion/{id_publicacion}', [ReportesController::class, 'reportarPublicacion'])->name('reportarPubli');
 Route::post('/editarInformeComentario/{id_informe}',[ReportesController::class,'editarInformeComentario'])->name('editarInformeComentario');
+Route::post('/editarInformeUser/{id_informe}',[ReportesController::class,'editarInformeUser'])->name('editarInformeUser');
 Route::post('/editarInformePublicacion/{id_informe}',[ReportesController::class,'editarInformePublicacion'])->name('editarInformePublicacion');
 
 //Controller Baneos

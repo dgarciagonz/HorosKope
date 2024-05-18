@@ -22,6 +22,13 @@ main{
     border-top-left-radius: 10px;
 
 }
+
+.bordearrib{
+    border-top: 2px solid ;
+    border-color: #FF0DDC;
+
+}
+
 .bordeder{
     border-top: 2px solid ;
     border-right: 2px solid ;
@@ -43,6 +50,10 @@ main{
     color: #FF0DDC !important;
 }
 
+.noSub2{
+    text-decoration: none; 
+
+}
 .subtext{
     color: #cecece !important;
 }
@@ -50,6 +61,12 @@ main{
 .emergente{
     background-color: #C400A8;
     color: white !important;
+}
+
+.cartaOpcion{
+    min-height: 80vh;
+    
+    
 }
 
 .pos{
@@ -60,6 +77,7 @@ main{
 .neg{
     color: #ff9090 !important;
 }
+
 
 
 .fondoPregunta{
@@ -73,12 +91,12 @@ main{
 }
 
 .dinero{
-    background: linear-gradient(to bottom, #e4a00d, #8fe00c);
+    background: linear-gradient(to bottom, #e9bd5e, #8f6e3c);
     min-height: 100vh;
 }
 
 .salud{
-    background: linear-gradient(to bottom, #13c903, #27eba9);
+    background: linear-gradient(to bottom, #61eb54, #4a7e6d);
     min-height: 100vh;
 }
 
@@ -90,17 +108,67 @@ main{
     background: linear-gradient(to right, #40ffbf, #059b61);
 }
 
-.color-boton{
+.color-boton,.color-boton2{
     background-color: #FFAFF4 !important;
     color:#b40c9b !important;
     transition: background-color 0.5s ease;
 }
 
+.fondoCarta1, .fondoCarta2, .fondoCarta3 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    transition: background 0.5s ease-in-out;
 
+}
+
+.fondoCarta1{
+    background-image: url('../cartas/t-0-loco.jpg');
+}
+
+.fondoCarta2{
+    background-image: url('../cartas/3-espadas.jpg');
+}
+
+.fondoCarta3{
+    background-image: url('../cartas/9-oros.jpg');
+}
+
+/* Fondo degradado al pasar el ratón */
+.fondoCarta1:hover {
+    background: linear-gradient(to bottom, rgb(252, 248, 248), rgba(241, 54, 217, 0.116)), url('../cartas/t-0-loco.jpg');
+}
+.fondoCarta2:hover{
+    background: linear-gradient(to bottom, rgb(252, 248, 248), rgba(241, 54, 217, 0.116)), url('../cartas/3-espadas.jpg');
+}
+.fondoCarta3:hover{
+    background: linear-gradient(to bottom, rgb(252, 248, 248), rgba(241, 54, 217, 0.116)), url('../cartas/9-oros.jpg');
+}
+
+.cuerpoTarjeta{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0; 
+    transition: opacity 1s ease-in-out; 
+}
+
+.fondoCarta1:hover .card-body,.fondoCarta2:hover .card-body,.fondoCarta3:hover .card-body {
+    opacity: 1;
+}
 
 
 .color-boton:hover, .btnActivado{
     background-color: #FF0DDC !important;
+    color: white !important;;
+}
+
+.color-boton2:hover{
+    background-color: #760dff !important;
     color: white !important;;
 }
 

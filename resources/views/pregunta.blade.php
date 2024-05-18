@@ -15,6 +15,23 @@
                 @else
                     <h1 class="text-center text-secondary fw-bold">No hay respuesta temporalmente</h1>
                 @endif
+                <div class="d-flex flex-column align-items-center">
+                    <form method="POST" action="/horoskope">
+                        @method('POST')
+                        @csrf
+                            <textarea class="form-control w-0" id="contenidoPost" name="nuevoPost" style="resize:none" hidden>
+                        Mi tirada de pregunta '{{ $pregunta }}' me ha devuelto la carta de {{ $carta->nombre }} que significa 
+                        @if($carta->posNeg == 1) un sí
+                        @elseif($carta->posNeg == 0) un no
+                        @else
+                         que no hay respuesta temporalmente
+                        @endif
+                        
+                        </textarea>
+                        <button type="submit" class="btn color-boton mt-5 p-3 ">Compartir</button>
+                    </form>
+                </div>
+
         </div>
         <div class="d-none  col-md-4  d-md-flex justify-content-center align-items-center ">
         <img src="{{ asset($carta->imagen) }}" alt="{{ $carta->nombre }}" class="img-fluid" style="max-width: 300px;">

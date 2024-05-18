@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Like;
 use App\Models\Publicacione;
 use App\Models\Seguidore;
+use App\Models\Comentario;
 
 class PerfilController extends Controller
 {
@@ -21,7 +23,7 @@ class PerfilController extends Controller
         $idUsuario = $usuario->id_usuario;
 
         //Seleccionamos todas las publicaciones de ese usuario
-        $posts = Publicacione::whereIn('id_creador', [$usuario->id_usuario])
+        $posts = Publicacione::where('id_creador', $idUsuario)
                      ->where('visible', true)
                      ->orderBy('fecha_creacion', 'desc')
                      ->get();
@@ -39,17 +41,53 @@ class PerfilController extends Controller
 
         $lista_seguidores = User::select('id_usuario','icono','username')->whereIn('id_usuario',$seguidores)->get();
         
+        //Obtenemos los comentarios del usuario
+        $comentarios = Comentario::where('id_usuario', '=', $idUsuario)
+                        ->where('visible',true)
+                        ->orderBy('fecha_creacion', 'desc')
+                        ->get();
         
-        
+        //Obtenemos los likes del usuario
+        $publiLikes = Like::select('id_publicacion')
+                    ->where('id_usuario','=',$idUsuario)
+                    ->get();
+
+        $publiConlikes = Publicacione::whereIn('id_publicacion', $publiLikes)
+                ->where('visible', true)
+                ->get();
+
         $nombreSigno = $usuario->signo->nombre;
         $descripcionSigno = $usuario->signo->descripcion;
         
 
+        $publiLikes=$publiLikes->count();
         if($userActual==$idUsuario){
-            return view('perfil')->with('usuario', $usuario)->with('usuarioActual',$datosUser)->with('publicaciones',$posts)->with('lista_seguidos', $lista_seguidos)->with('lista_seguidores', $lista_seguidores)->with('nombreSigno', $nombreSigno)->with('descripcionSigno',$descripcionSigno);
+            return view('perfil')
+            ->with('usuario', $usuario)
+            ->with('usuarioActual',$datosUser)
+            ->with('publicaciones',$posts)
+            ->with('lista_seguidos', $lista_seguidos)
+            ->with('lista_seguidores', $lista_seguidores)
+            ->with('nombreSigno', $nombreSigno)
+            ->with('descripcionSigno',$descripcionSigno)
+            ->with('comentarios',$comentarios)
+            ->with('numLikes',$publiLikes)
+            ->with('publiLikes',$publiConlikes)
             ;
+            
         }else{
-            return view('perfil')->with('usuario', $usuario)->with('usuarioActual',$datosUser)->with('publicaciones',$posts)->with('lista_seguidos', $lista_seguidos)->with('lista_seguidores', $lista_seguidores)->with('nombreSigno', $nombreSigno)->with('descripcionSigno',$descripcionSigno);
+            return view('perfil')
+            ->with('usuario', $usuario)
+            ->with('usuarioActual',$datosUser)
+            ->with('publicaciones',$posts)
+            ->with('lista_seguidos', $lista_seguidos)
+            ->with('lista_seguidores', $lista_seguidores)
+            ->with('nombreSigno', $nombreSigno)
+            ->with('descripcionSigno',$descripcionSigno)
+            ->with('comentarios',$comentarios)
+            ->with('numLikes',$publiLikes)
+            ->with('publiLikes',$publiConlikes)
+            ;
         }
     }
 }

@@ -52,24 +52,24 @@
                                                 <div class="modal-content">
                                                     <div class="modal-body text-start">
                                                         
-                                                    <label for="fecha">Selecciona una fecha para tu cita:</label>
-                                                    <select name="fecha" id="fecha" class="form-control">
-                                                        @foreach ($fechas as $fecha)
-                                                            <option value="{{ $fecha['dia'] }}">{{ $fecha['dia'] }}</option>
-                                                        @endforeach
-                                                    </select>
                                                     <label for="pitonisa">Pitonisa:</label>
                                                     <select name="pitonisa" id="pitonisa" class="form-control">
+                                                        <option value="" disabled selected>----</option>
                                                         @foreach ($pitonisas as $pitonisa)
                                                             <option value="{{ $pitonisa->id_usuario }}">{{ $pitonisa->username }}</option>
                                                         @endforeach
+                                                    </select>
+
+                                                    <label for="fecha" >Selecciona una fecha para tu cita:</label>
+                                                    <select name="fecha" id="fecha" class="form-control">
+
                                                     </select>
                                                         
                                                     </div>
                                                       
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                        <button type="submit" class="btn btn-danger">Cambiar cita</button>
+                                                        <button type="submit" class="btn btn-danger" id="guardarCita" disabled>Cambiar cita</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -114,19 +114,15 @@
                                                 <div class="modal-content">
                                                     <div class="modal-body text-start">
                                                         
-                                                    <label for="fecha">Selecciona una fecha para tu cita:</label>
-                                                    <select name="fecha" id="fecha" class="form-control">
-                                                        @foreach ($fechas as $fecha)
-                                                            <option value="{{ $fecha['dia'] }}">{{ $fecha['dia'] }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    <input type="text" name="pitonisa" id="pitonisa" hidden class="form-control hidden" value="{{ Auth::User()->id_usuario }}">       
+                                                    <label for="fecha">Nueva fecha para tu cita:</label>
+                                                    <select name="fecha" id="fechaP" class="form-control">
+                                                    <input type="text" name="pitonisa" id="pitonisaAct" hidden class="form-control hidden" value="{{ Auth::User()->id_usuario }}">       
                                                         
                                                     </div>
                                                       
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                        <button type="submit" class="btn btn-danger">Cambiar cita</button>
+                                                        <button type="submit"  class="btn btn-danger" >Cambiar cita</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,9 +145,12 @@
             </div>
 
             <div class="col-md-4 text-center">
-                <button class="btn btn-primary btn-lg btn-block" onclick="location.href='{{ route('tarot') }}'">Pedir Cita</button>
+                <button class="btn color-boton btn-lg btn-block" onclick="location.href='{{ route('tarot') }}'">Pedir Cita</button>
             </div>
             
         </div>
 @endif    
+
+<script src="{{ asset('/js/fechas.js') }}"></script>
+
 </x-app-layout>

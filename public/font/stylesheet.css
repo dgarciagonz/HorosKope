@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'BelugaLL';
+    src: url('BelugaLL.eot');
+    src: local('BelugaLL'),
+        url('BelugaLL.eot?#iefix') format('embedded-opentype'),
+        url('BelugaLL.woff2') format('woff2'),
+        url('BelugaLL.woff') format('woff'),
+        url('BelugaLL.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

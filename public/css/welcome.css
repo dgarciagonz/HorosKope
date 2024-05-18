@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'Beluga';
+    src: url("../font/BelugaLL.ttf");
+}
+
+
 .fondo-espacial{
     background-image: url('../backgrounds/estrellas.png');
     background-repeat: repeat;
@@ -8,4 +14,98 @@
 .fondo{
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.301) 75%, rgb(13, 126, 255), white);
     height: 100vh;
+}
+
+
+
+.fondoprincipal{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.301) 75%, rgb(13, 126, 255), white);
+    height: 100vh;
+}
+
+.titulo{
+    font-family: 'Beluga';
+    color: white;
+}
+
+.negro{
+    background-color: black;
+    border-bottom: 2px #FF0DDC solid;
+}
+
+.blanco{
+    color: white !important;
+}
+
+.home {
+    background-image: url('../backgrounds/estrellas.png');
+    height: 60vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.home::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+
+
+.horoscopo{
+    background-image: url('../backgrounds/clock-1096054_1280.jpg');
+    
+}
+
+.tarot{
+    background-image: url('../backgrounds/tarot-991041_1280.jpg');
+}
+
+.coleccion{
+    background-image: url('../backgrounds/tarot-5511610_1280.jpg');
+}
+
+.horoscopo,.tarot,.coleccion{
+    height: 40vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-position: center;
+    position: relative;
+}
+
+.horoscopo::after ,.tarot::after, .coleccion::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.home .texto-home, .horoscopo h3,.horoscopo p, .tarot h3,.tarot p, .coleccion h3,.coleccion p {
+    position: relative;
+    z-index: 2;
+}
+
+.titulos{
+    color: #FF0DDC;
+}
+
+.home{
+    border-bottom: double 10px #FF0DDC; 
+}
+
+footer{
+    border-top: double 10px #FF0DDC;
+    background-color:black;
 }
