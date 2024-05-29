@@ -116,7 +116,7 @@
                 </div>
                                 <div class="row d-flex justify-content-center ms-2 ">
                                         <div class="">
-                                            <form action="{{ route('crearComentario') }}" method="POST" enctype="multipart/form-data" class="mb-2 nuevo-Comment rounded form-comment p-3" id="form-comment-{{ $publicacion->id_publicacion }}" style="display: none ">
+                                            <form action="{{ route('crearComentario') }}" method="POST" enctype="multipart/form-data" class="mb-2 nuevo-Comment rounded form-comment p-3 wow animate__animated animate__fadeIn" id="form-comment-{{ $publicacion->id_publicacion }}" style="display: none ">
                                                 @csrf
                                                 <input type="hidden" name="id_publicacion" value="{{ $publicacion->id_publicacion }}">
 
@@ -136,7 +136,7 @@
         </div>
 
     @foreach($comentarios as $comentario)
-        <div class="card mt-2 border-0">
+        <div class="card mt-2 border-0 wow animate__animated animate__fadeIn">
                 <div class="card-body rounded publicacion">
                     <div class="d-flex align-items-center mb-1">
                         <div class="rounded-circle overflow-hidden" style="width: 50px; height: 50px;">

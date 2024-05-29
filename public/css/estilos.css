@@ -114,15 +114,7 @@ main{
     transition: background-color 0.5s ease;
 }
 
-.fondoCarta1, .fondoCarta2, .fondoCarta3 {
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    overflow: hidden;
-    background-position: center;
-    transition: background 0.5s ease-in-out;
 
-}
 
 .fondoCarta1{
     background-image: url('../cartas/t-0-loco.jpg');
@@ -136,15 +128,28 @@ main{
     background-image: url('../cartas/9-oros.jpg');
 }
 
+.fondoCarta1, .fondoCarta2, .fondoCarta3 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    transition: background 1s ease-in-out;
+
+}
+
 /* Fondo degradado al pasar el ratón */
 .fondoCarta1:hover {
     background: linear-gradient(to bottom, rgb(252, 248, 248), rgba(241, 54, 217, 0.116)), url('../cartas/t-0-loco.jpg');
+    background-position: center;
 }
 .fondoCarta2:hover{
     background: linear-gradient(to bottom, rgb(252, 248, 248), rgba(241, 54, 217, 0.116)), url('../cartas/3-espadas.jpg');
+    background-position: center;
 }
 .fondoCarta3:hover{
     background: linear-gradient(to bottom, rgb(252, 248, 248), rgba(241, 54, 217, 0.116)), url('../cartas/9-oros.jpg');
+    background-position: center;
 }
 
 .cuerpoTarjeta{
@@ -154,7 +159,7 @@ main{
     transform: translate(-50%, -50%);
     z-index: 1;
     opacity: 0; 
-    transition: opacity 1s ease-in-out; 
+    transition: opacity 0.5s ease-in-out; 
 }
 
 .fondoCarta1:hover .card-body,.fondoCarta2:hover .card-body,.fondoCarta3:hover .card-body {

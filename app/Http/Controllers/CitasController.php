@@ -44,22 +44,27 @@ class CitasController extends Controller
     //Creamos un array asociativo para las fechas ocupadas por cada pitonisa
     $fechasOcupadasPorPitonisa = [];
 
+    $pitonisas = $this->pitonisas();
+
+    foreach ($pitonisas as $pitonisa){
+        $idPitonisa = $pitonisa->id_usuario;
+        $fechasOcupadasPorPitonisa[$idPitonisa] = [];
+    }
+
+
+
     foreach ($citas as $cita) {
         $fechaCita = $cita->fecha;
         $pitonisaId = $cita->id_pitonisa;
-
-        //Guarda las fechas ocupadas por las pitonisas
-        if (!isset($fechasOcupadasPorPitonisa[$pitonisaId])) {
-            $fechasOcupadasPorPitonisa[$pitonisaId] = [];
-        }
 
         //Agregar la fecha ocupada a la lista de la pitonisa correspondiente
         $fechasOcupadasPorPitonisa[$pitonisaId][] = $fechaCita;
     }
 
+    
+
     //Crea un array asociativo con las citas disponibles por pitonisa
     $fechasDisponiblesPorPitonisa = [];
-    $pitonisas = $this->pitonisas();
 
     foreach ($pitonisas as $pitonisa) {
         $idPitonisa = $pitonisa->id_usuario;

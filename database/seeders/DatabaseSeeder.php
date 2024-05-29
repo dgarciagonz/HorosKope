@@ -1152,6 +1152,17 @@ class DatabaseSeeder extends Seeder
         $pitonisa->icono = '/profile_pic/blank.png';
         $pitonisa->save();
 
+        $pitonisa2 = new User;
+        $pitonisa2->username = 'clarivi10ncia';
+        $pitonisa2->correo = 'clari@correo.com';
+        $pitonisa2->password = '1234';
+        $pitonisa2->estado = true;
+        $pitonisa2->fecha_nacimiento = '1999-06-12';
+        $pitonisa2->id_signo = 9;
+        $pitonisa2->rol= 'pitonisa';
+        $pitonisa2->icono = '/profile_pic/blank.png';
+        $pitonisa2->save();
+
     }
     public function run(): void
     {

@@ -39,7 +39,7 @@
 
 .home {
     background-image: url('../backgrounds/estrellas.png');
-    height: 60vh;
+    height: 100vh;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -101,11 +101,6 @@
     color: #FF0DDC;
 }
 
-.home{
-    border-bottom: double 10px #FF0DDC; 
-}
-
 footer{
-    border-top: double 10px #FF0DDC;
     background-color:black;
 }
